@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Paciente</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <h1><span data-field="hospital"></span> – Patient Portal</h1>
+  <a href="{{ url_for('login') }}">Sign out</a>
+</header>
+<main>
+  <div class="card info">
+    <h2>Informação do Paciente</h2>
+    <p><strong>Nome:</strong> <span data-field="name"></span></p>
+    <p><strong>ID Paciente:</strong> <span data-field="id"></span> &nbsp; <strong>Idade:</strong> <span data-field="age"></span> &nbsp; <strong>Tipo Sanguíneo:</strong> <span data-field="bloodType"></span></p>
+    <p><strong>Doutor Primario:</strong> <span data-field="doctor"></span></p>
+    <p><strong>Alergias:</strong> <span data-field="allergies"></span></p>
+  </div>
+
+  <div class="card">
+    <h2>Ultimas Vitais (<span data-field="vitalsDate"></span>)</h2>
+    <div class="grid">
+      <div class="vital"><span>Blood pressure</span><strong data-field="vitals.bloodPressure"></strong></div>
+      <div class="vital"><span>Heart rate</span><strong data-field="vitals.heartRate"></strong></div>
+      <div class="vital"><span>Temperature</span><strong data-field="vitals.temperature"></strong></div>
+      <div class="vital"><span>Oxygen</span><strong data-field="vitals.oxygen"></strong></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Consultas Agendadas</h2>
+    <table>
+      <thead><tr><th>Data</th><th>Tempo</th><th>Doutor</th><th>Departamento</th></tr></thead>
+      <tbody id="appointments"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Medicamentos</h2>
+    <table>
+      <thead><tr><th>Nome</th><th>Dose</th><th>Frequência</th></tr></thead>
+      <tbody id="medications"></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Resultados de testes recentes</h2>
+    <table>
+      <thead><tr><th>Teste</th><th>Data</th><th>Resultado</th><th>Status</th></tr></thead>
+      <tbody id="results"></tbody>
+    </table>
+  </div>
+</main>
+</body>
+</html>
